@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>0
+<h1>kiểm tra tuổi của 1 người</h1>
+Mời nhập số tuổi:<input id="age"> <br> <br>
+<button onclick="nhan()">Kiểm tra</button>
+<p id="hien"></p>
+</body>
+</html>
+<script>
+  function nhan(){
+      let age = document.getElementById("age").value;
+      let so_a = parseInt(age);
+      let hien_thi = document.getElementById("hien")
+      if (so_a > 0){
+          if (so_a < 120){
+              hien_thi.innerText = so_a + " là số tuổi của một người";
+          }else {
+              hien_thi.innerText = so_a + " không phải là số tuổi của một người";
+          }
+
+      }else {
+          hien_thi.innerText = so_a + " không phải là số tuổi của một người";
+
+      }
+  }
+</script>

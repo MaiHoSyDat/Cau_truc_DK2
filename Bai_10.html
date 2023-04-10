@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Tính giá điện</h1>
+<p>Bảng giá tham khảo:</p><br>
+Bậc 1 (0 đến 50kWh): 1,678 VND/kWh. <br>
+Bậc 2 (51 đến 100kWh): 1,734 VND/kWh.<br>
+Bậc 3 (101 đến 200 kWh): 2,014 VND/kWh.<br>
+Bậc 4 (201 đến 300 kWh): 2,536 VND/kWh.<br>
+Bậc 5 (301 đến 400 kWh): 2,834 VND/kWh.<br>
+Bậc 6 (401 kWh trở lên): 2,927 VND/kWh.<br><br>
+<h4>Nhập số điện bạn cần kiểm tra giá tiền (kWh):</h4> <br>
+<input id="so_dien">
+<button onclick="nhan()">Kiểm tra</button>
+<h3 id="hien"></h3>
+</body>
+</html>
+<script>
+
+   function nhan() {
+       let hien= document.getElementById("hien");
+       let a = document.getElementById("so_dien").value;
+       let soA = parseInt(a);
+       let b;
+       switch (true){
+           case (soA > 0 && soA <= 50):
+                b = soA * 1678;
+               hien.innerText = "Số tiền bạn phải trả là: "+ b + "VND";
+               break;
+           case (soA <= 100):
+                b = 50 * 1678 + (soA - 50) * 1734;
+               hien.innerText = "Số tiền bạn phải trả là: "+ b + "VND";
+               break;
+           case (soA <=200):
+                b = 50 * 1678 + 50 * 1734 + (soA - 100) * 2014;
+               hien.innerText = "Số tiền bạn phải trả là: "+ b + "VND";
+               break;
+           case (soA <= 300):
+               b =50 * 1678 + 50 * 1734 + 100 * 2014 + (soA - 200) * 2536;
+               hien.innerText = "Số tiền bạn phải trả là: "+ b + "VND";
+               break;
+           case (soA <= 400):
+                b = 50 * 1678 + 50 * 1734 + 100 * 2014 + 100 * 2536 + (soA - 300) * 2834;
+               hien.innerText = "Số tiền bạn phải trả là: "+ b + "VND";
+               break;
+           case (soA > 400):
+               b = 50 * 1678 + 50 * 1734 + 100 * 2014 + 100 * 2536 + 100 * 2834 + (soA- 400) * 2927;
+               hien.innerText = "Số tiền bạn phải trả là: "+ b + "VND";
+               break;
+
+       }
+   }
+
+</script>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Giải phương trình ax<sup>2</sup> + bx + c = 0</h1>
+Nhập số a:<input id="soA"> <br><br>
+Nhập số b:<input id="soB"> <br><br>
+Nhập số c:<input id="soC"> <br><br>
+<button onclick="nhan()">Kiểm tra</button>
+<p id="nghiem"></p>
+</body>
+</html>
+<script>
+    function nhan(){
+        let a = document.getElementById("soA").value;
+        let b = document.getElementById("soB").value;
+        let c = document.getElementById("soC").value;
+        let so_a = parseFloat(a);
+        let so_b = parseFloat(b);
+        let so_c = parseFloat(c);
+
+        let delta = parseFloat(so_b * so_b - 4 * so_a * so_c) ;
+        let delTa = (Math.sqrt(delta))
+
+        let kq = document.getElementById("nghiem")
+         if (delta > 0){
+             let x1 = (-so_b + delTa) / (2 * so_a);
+             let x2 = (-so_b - delTa) / (2 * so_a);
+             kq.innerText = "Phương trình có 2 nghiệm phân biệt x1=" + x1 + " và x2=" + x2;
+         }else if (delta < 0){
+             kq.innerText = "Phương trình vô nghiệm!"
+         }else {
+             let x = -so_b / (2 * so_a);
+             kq.innerText = "Phương trình có nghiệm kép là x1=x2=" + x;
+         }
+    }
+</script>

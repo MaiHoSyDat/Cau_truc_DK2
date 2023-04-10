@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Tính thuế thu nhập cá nhân</h1>
+<p>Mức thuế tham khảo :</p><br>
+Bậc 1: Thu nhập <= 5 triệu đồng : Thuế 5%; <br>
+Bậc 2:  5 triệu đồng< Thu nhập <= 10 triệu đồng : Thuế 10%; <br>
+Bậc 3: 10 triệu đồng< Thu nhập <= 18 triệu đồng : Thuế 15%; <br>
+Bậc 4: 18 triệu đồng< Thu nhập <= 32 triệu đồng : Thuế 20%; <br>
+Bậc 5: 32 triệu đồng< Thu nhập <= 52 triệu đồng : Thuế 25%; <br>
+Bậc 6: 52 triệu đồng< Thu nhập <= 80 triệu đồng : Thuế 30%; <br>
+Bậc 7: Thu nhập > 80 triệu đồng : Thuế 35%; <br>
+Thu nhập cá nhân của bạn: <input id="thu_nhap">;
+<button onclick="kiemTra()">Kiểm tra</button>
+<h4 id="tien_thue"></h4>
+</body>
+</html>
+<script>
+    function kiemTra() {
+        let a = document.getElementById("thu_nhap").value;
+        let tien = parseInt(a);
+        let thue;
+        let tien_thue = document.getElementById("tien_thue");
+        switch (true){
+            case (tien <= 5):
+                thue = tien * 5/100;
+                tien_thue.innerText = "Tiền thuế bạn phải đóng là: " + thue + " triệu đồng";
+                break;
+            case (tien <= 10):
+                thue = tien * 10/100 - 0.25;
+                tien_thue.innerText = "Tiền thuế bạn phải đóng là: " + thue + " triệu đồng";
+                break;
+            case (tien <= 18):
+                thue = tien * 15/100 - 0.75;
+                tien_thue.innerText = "Tiền thuế bạn phải đóng là: " + thue + " triệu đồng";
+                break;
+            case (tien <= 32):
+                thue = tien * 20/100 - 1.65;
+                tien_thue.innerText = "Tiền thuế bạn phải đóng là: " + thue + " triệu đồng";
+                break;
+            case (tien <= 52):
+                thue = tien * 25/100- 3.25;
+                tien_thue.innerText = "Tiền thuế bạn phải đóng là: " + thue + " triệu đồng";
+                break;
+            case (tien <= 80):
+                thue = tien * 30/100 - 5.85;
+                tien_thue.innerText = "Tiền thuế bạn phải đóng là: " + thue + " triệu đồng";
+                break;
+            case (tien > 80):
+                thue = tien * 35/100 - 9.85;
+                tien_thue.innerText = "Tiền thuế bạn phải đóng là: " + thue + " triệu đồng";
+                break;
+
+        }
+
+
+    }
+</script>

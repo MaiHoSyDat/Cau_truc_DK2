@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Giải phương trình ax + b = 0</h1>
+Nhập số a : <input id="soA" > <br><br>
+Nhập số b : <input id="soB" > <br><br>
+<button onclick="nhan()">Kiểm tra</button>
+<p id="nghiem"></p>
+</body>
+</html>
+<script>
+
+ function nhan() {
+     let a = document.getElementById("soA").value;
+     let b = document.getElementById("soB").value;
+     let so_a = parseInt(a);
+     let so_b = parseInt(b);
+     let x = (-so_b / so_a);
+     let nghiem = document.getElementById("nghiem");
+
+     if (so_a === 0){
+         if (so_b === 0) {
+             nghiem.innerText = "Phương trình có vô số nghiệm";
+         }else {
+             nghiem.innerText = "Phương trình vô nghiệm";
+         }
+     }else {
+         nghiem.innerText = "Phương trình có nghiệm là x= " + x;
+     }
+ }
+
+</script>
